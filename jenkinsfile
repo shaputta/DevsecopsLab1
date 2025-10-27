@@ -28,7 +28,7 @@ pipeline {
                 // Scan and save report
                 sh '''
                   mkdir -p trivy-reports
-                  trivy fs --scanners vuln,secret,misconfig agent/
+                  trivy image --no-progress --exit-code 0 --format table -o trivy-reports/report.txt $IMAGE_NAME
                   cat trivy-reports/report.txt
                 '''
             }
