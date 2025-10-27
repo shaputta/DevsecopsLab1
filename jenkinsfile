@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:25.0.2-dind'
+            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
     environment {
         DOCKERHUB_USER = 'vishwacloudlab'
         IMAGE_NAME = 'jenkins-docker-lab'
