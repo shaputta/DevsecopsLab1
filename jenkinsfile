@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'Sha-docker-agent'
+        label 'Sha-ubuntu-agent'
     }
     environment {
         DOCKERHUB_USER = 'shaputtalab'
